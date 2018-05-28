@@ -7,13 +7,19 @@ function fillApp(oldApp) {
   }
 }
 
+function pluginStop(filledApp, stop) {
+  return () => Promise.resolve(stop()).then((res) => {
+    filledApp.ref.clear()
+    return res
+  })
+}
+
 function wrapPlugin(initPlugin) {
-  return app => {
-    const plugin = initPlugin(fillApp(app))
-    plugin.stop = () => {
-      app.ref.clear()
-      plugin.stop()
-    }
+  return (app) => {
+    const filledApp = fillApp(app)
+    const plugin = initPlugin(filledApp)
+    plugin.stop = pluginStop(filledApp, plugin.stop)
+    return plugin
   }
 }
 

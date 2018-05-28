@@ -25,6 +25,7 @@ const createStop = (clear, get) => () => {
 function createRefStore(initState = {}) {
   let state = initState
   const getState = () => state
+  // Do we want to limit set() to only handle functions or classes?
   const set = _.curry((path, value) => { state = _.set(path, value, getState()) })
   const clear = () => { state = initState }
   const { get, selector } = storeHelpers(getState)

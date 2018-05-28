@@ -1,9 +1,10 @@
 {
-  "name": "signalk-state",
+  "name": "signalk-plugin-state",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Kai Curry <kai@cape.io>",
   "license": "MIT",
+  "repository": "https://github.com/cape-io/signalk-plugin-state.git",
   "dependencies": {
     "cape-lodash": "^1.13.2",
     "lodash": "^4.17.10"

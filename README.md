@@ -27,7 +27,7 @@ module.exports = wrapPlugin(initPlugin)
 
 Object with the following methods:
 
-* `addInterval(id, func, seconds)` - Automatically cleared when plugin.stop() is called.
+* `addInterval(id, func, seconds)` - Automatically cleared when `plugin.stop()` is called.
 * `set(id, func)` - Set references to methods or values.
 * `get(id)` - Returns method or value.
 * `invoke(id)` - Calls reference method.

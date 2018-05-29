@@ -35,7 +35,7 @@ function createRefStore(initState = {}) {
     get,
     selector,
     getState,
-    invoke: path => _.invoke(path, getState()),
+    invoke: (path, args) => _.invokeArgs(path, args, getState()),
     set,
     // onStop is an object with each value is a func. stop calls all those functions.
     stop: createStop(clear, get),

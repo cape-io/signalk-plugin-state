@@ -21,7 +21,7 @@ function pluginStart(app, schema, start) {
       app.error('statusMessage', validate.error)
       return Promise.reject(validate.error)
     }
-    return start()
+    return start(props)
   }
 }
 

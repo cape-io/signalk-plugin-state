@@ -24,7 +24,9 @@ describe('wrapPlugin', () => {
     const plugin = getPlugin(app)
     expect(typeof plugin.stop).toBe('function')
     expect(plugin.ref.get('foo')).toBe('bar')
-    await plugin.start({})
+    const props = { props: true }
+    await plugin.start(props)
+    expect(start.mock.calls[0][0]).toBe(props)
     await plugin.stop()
     expect(plugin.ref.get('foo')).toBe(undefined)
     expect(stop.mock.calls.length).toBe(1)
